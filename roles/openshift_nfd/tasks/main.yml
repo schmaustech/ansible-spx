@@ -1,0 +1,23 @@
+- name: Deploy NFD Operator
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'nfd-operator.yaml') }}"
+
+- name: Wait for NFD Operator to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_operator.yml
+  vars:
+    operator_name: nfd
+    operator_namespace: "{{ nfd_namespace }}"
+
+- name: Deploy NFD Instance...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'nfd-instance.yaml') }}"
+
+- name: Wait for NFD Instance to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_instance.yml
+  vars:
+    instance_name: nfd-instance
+    instance_namespace: "{{ nfd_namespace }}"
