@@ -1,0 +1,16 @@
+- name: Waiting Since {{ lookup("pipe", "date +%r") }} for the Instance to Deploy
+  kubernetes.core.k8s_info:
+    api_version: nfd.openshift.io/v1
+    kind: NodeFeatureDiscovery
+    name: '{{ instance_name }}'
+    namespace: '{{ instance_namespace }}'
+  register: instance_csv
+  until:
+    - instance_csv.resources.0.status is defined
+    - instance_csv.resources.0.status.conditions is defined
+    - instance_csv.resources.0.status.conditions[0].lastTransitionTime is defined
+    - instance_csv.resources.0.status.conditions[0].type == 'Available'
+    - instance_csv.resources.0.status.conditions[0].status == 'True'
+  failed_when: False
+  retries: 60
+  delay: 10
