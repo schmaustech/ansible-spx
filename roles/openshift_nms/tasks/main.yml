@@ -22,3 +22,4 @@
     instance_name: nmstate
     instance_namespace: "{{ nms_namespace }}"
     kind_name: NMState
+    api_operator_version: nmstate.io/v1
