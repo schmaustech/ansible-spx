@@ -1,4 +1,4 @@
-apiVersion: mellanox.com/v1alpha1
+apiVersion: mellanox.com/v1
 kind: NicClusterPolicy
 metadata:
   name: nic-cluster-policy
