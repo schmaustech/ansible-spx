@@ -1,2 +1,2 @@
-nms_namespace: nvidia-gpu-operator
+nms_namespace: openshift-nmstate
 nms_version: stable
