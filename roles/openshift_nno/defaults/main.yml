@@ -3,3 +3,4 @@ nno_version: v26.1
 nno_driver_version: doca3.2.0-25.10-1.2.8.0-2
 nno_rdmashared_eth: enp55s0np0
 nno_rdmashared_ib: ibp13s0
+nno_type: rdmashared
