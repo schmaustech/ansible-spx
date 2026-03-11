@@ -1,0 +1,24 @@
+- name: Deploy NMState Operator
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'nms-operator.yaml') }}"
+
+- name: Wait for NMState Operator to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_operator.yml
+  vars:
+    operator_name: nmstate
+    operator_namespace: "{{ nms_namespace }}"
+
+- name: Deploy NMState Instance...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'nmstate-instance.yaml') }}"
+
+- name: Wait for NMState Instance to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_instance.yml
+  vars:
+    instance_name: nmstate
+    instance_namespace: "{{ nms_namespace }}"
+    kind_name: NMState
