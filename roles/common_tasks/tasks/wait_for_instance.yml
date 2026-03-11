@@ -12,5 +12,5 @@
     - instance_csv.resources.0.status.conditions[0].type == 'Available'
     - instance_csv.resources.0.status.conditions[0].status == 'True'
   failed_when: False
-  retries: 60
+  retries: 300
   delay: 10
