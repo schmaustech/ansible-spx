@@ -23,3 +23,4 @@
     instance_name: nic-cluster-policy
     instance_namespace: "{{ nno_namespace }}"
     kind_name: NicClusterPolicy
+    api_operator_version: mellanox.com/v1alpha1
