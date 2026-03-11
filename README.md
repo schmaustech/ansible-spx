@@ -8,8 +8,8 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 
 | **Playbook**    | **Description/Function**                                                                                                       | **Status**          |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |WIP                  |
-| openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |WIP                  |
+| openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |Complete             |
+| openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |Complete             |
 | openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |WIP                  |
 | openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |WIP                  |
 | openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |Not Started          |
