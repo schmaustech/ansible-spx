@@ -1,7 +1,7 @@
 - name: Waiting Since {{ lookup("pipe", "date +%r") }} for the Instance to Deploy
   kubernetes.core.k8s_info:
     api_version: nfd.openshift.io/v1
-    kind: NodeFeatureDiscovery
+    kind: '{{ kind_name }}'
     name: '{{ instance_name }}'
     namespace: '{{ instance_namespace }}'
   register: instance_csv
