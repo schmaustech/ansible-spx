@@ -9,7 +9,6 @@
   vars:
     operator_name: nfd
     operator_namespace: "{{ nfd_namespace }}"
-    kind_name: NodeFeatureDiscovery
 
 - name: Deploy NFD Instance...
   kubernetes.core.k8s:
@@ -22,3 +21,4 @@
   vars:
     instance_name: nfd-instance
     instance_namespace: "{{ nfd_namespace }}"
+    kind_name: NodeFeatureDiscovery
