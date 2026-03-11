@@ -17,7 +17,7 @@
     api_version: operators.coreos.com/v1alpha1
     kind: ClusterServiceVersion
     name: '{{ operator_subscription.resources.0.status.currentCSV }}'
-    namespace: '{{ nfd_namespace }}'
+    namespace: '{{ operator_namespace }}'
   register: operator_csv
   until:
     - operator_csv.resources.0.status is defined
