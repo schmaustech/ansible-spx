@@ -12,14 +12,14 @@
 
 - name: Deploy NVIDIA Network Operator NicClusterPolicy...
   kubernetes.core.k8s:
-    definition: "{{ lookup('template', 'nno-rdmashared-nicclusterpolicy.yaml') }}"
+    definition: "{{ lookup('template', 'nno-"{{ nno_type }}"-nicclusterpolicy.yaml') }}"
 
-#- name: Wait for NVIDIA Network Operator NicClusterPolicy to Deploy...
-#  ansible.builtin.import_role:
-#    name: common_tasks
-#    tasks_from: wait_for_instance.yml
+- name: Wait for NVIDIA Network Operator NicClusterPolicy to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_instance.yml
 
-#  vars:
-#    instance_name: nicclusterpolicy
-#    instance_namespace: "{{ nno_namespace }}"
-#    kind_name: NicClusterPolicy
+  vars:
+    instance_name: nicclusterpolicy
+    instance_namespace: "{{ nno_namespace }}"
+    kind_name: NicClusterPolicy
