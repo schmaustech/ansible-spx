@@ -1,0 +1,78 @@
+apiVersion: mellanox.com/v1alpha1
+kind: NicClusterPolicy
+metadata:
+  name: nic-cluster-policy
+spec:
+  ofedDriver:
+    imagePullSecrets: []
+    readinessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 30
+    forcePrecompiled: false
+    terminationGracePeriodSeconds: 300
+    repository: nvcr.io/nvidia/mellanox
+    livenessProbe:
+      initialDelaySeconds: 30
+      periodSeconds: 30
+    upgradePolicy:
+      autoUpgrade: true
+      drain:
+        deleteEmptyDir: true
+        enable: true
+        force: true
+        podSelector: ''
+        timeoutSeconds: 300
+      maxParallelUpgrades: 1
+      safeLoad: false
+    startupProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 20
+    version: '{{ nno_driver_version }}'
+    image: doca-driver
+    env:
+    - name: UNLOAD_STORAGE_MODULES
+      value: "true"
+    - name: RESTORE_DRIVER_ON_POD_TERMINATION
+      value: "true"
+    - name: CREATE_IFNAMES_UDEV
+      value: "true"
+    #- name: ENABLE_NFSRDMA
+    #  value: 'true'
+    - name: ENTRYPOINT_DEBUG
+      value: 'true'
+  rdmaSharedDevicePlugin:
+    config: |-
+      {
+        "configList": [
+          {
+            "resourceName": "rdma_shared_device_ib",
+            "rdmaHcaMax": 63,
+            "selectors": {
+              "ifNames": [
+                "'{{ nno_rdmashared_ib }}'"
+              ]
+            }
+          },
+          {
+            "resourceName": "rdma_shared_device_eth",
+            "rdmaHcaMax": 63,
+            "selectors": {
+              "ifNames": [
+                "'{{ nno_rdmashared_eth }}'"
+              ]
+            }
+          }
+        ]
+      }
+    image: k8s-rdma-shared-dev-plugin
+    repository: nvcr.io/nvidia/mellanox
+    version: network-operator-"{{ nno_version }}".0
+  secondaryNetwork:
+    cniPlugins:
+      image: plugins
+      repository: nvcr.io/nvidia/mellanox
+      version: network-operator-"{{ nno_version }}".0
+    ipoib:
+      image: ipoib-cni
+      repository: nvcr.io/nvidia/mellanox
+      version: network-operator-"{{ nno_version }}".0
