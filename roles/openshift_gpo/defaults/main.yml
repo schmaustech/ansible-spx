@@ -1,2 +1,5 @@
 gpo_namespace: nvidia-gpu-operator
 gpo_version: v25.10
+gpo_kernelmodtype: open
+gpo_rdma_enabled: true
+gpo_gdrcopy_enabled: true
