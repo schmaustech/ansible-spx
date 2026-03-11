@@ -1,7 +1,7 @@
 apiVersion: mellanox.com/v1
 kind: NicClusterPolicy
 metadata:
-  name: nic-cluster-policy
+  name: nicclusterpolicy
 spec:
   ofedDriver:
     imagePullSecrets: []
