@@ -17,7 +17,7 @@
 - name: Wait for NMState Instance to Deploy...
   ansible.builtin.import_role:
     name: common_tasks
-    tasks_from: wait_for_instance.yml
+    tasks_from: wait_for_existence.yml
   vars:
     instance_name: nmstate
     instance_namespace: "{{ nms_namespace }}"
