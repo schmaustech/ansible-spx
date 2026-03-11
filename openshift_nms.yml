@@ -3,4 +3,4 @@
   gather_facts: no
   tasks:
     - include_role:
-        name: openshift_nmstate
+        name: openshift_nms
