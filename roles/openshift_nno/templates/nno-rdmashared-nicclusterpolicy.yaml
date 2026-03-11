@@ -27,7 +27,7 @@ spec:
     startupProbe:
       initialDelaySeconds: 10
       periodSeconds: 20
-    version: '{{ nno_driver_version }}'
+    version: {{ nno_driver_version }}
     image: doca-driver
     env:
     - name: UNLOAD_STORAGE_MODULES
@@ -49,7 +49,7 @@ spec:
             "rdmaHcaMax": 63,
             "selectors": {
               "ifNames": [
-                "'{{ nno_rdmashared_ib }}'"
+                "{{ nno_rdmashared_ib }}"
               ]
             }
           },
@@ -58,7 +58,7 @@ spec:
             "rdmaHcaMax": 63,
             "selectors": {
               "ifNames": [
-                "'{{ nno_rdmashared_eth }}'"
+                "{{ nno_rdmashared_eth }}"
               ]
             }
           }
@@ -66,13 +66,13 @@ spec:
       }
     image: k8s-rdma-shared-dev-plugin
     repository: nvcr.io/nvidia/mellanox
-    version: network-operator-"{{ nno_version }}".0
+    version: network-operator-{{ nno_version }}.0
   secondaryNetwork:
     cniPlugins:
       image: plugins
       repository: nvcr.io/nvidia/mellanox
-      version: network-operator-"{{ nno_version }}".0
+      version: network-operator-{{ nno_version }}.0
     ipoib:
       image: ipoib-cni
       repository: nvcr.io/nvidia/mellanox
-      version: network-operator-"{{ nno_version }}".0
+      version: network-operator-{{ nno_version }}.0
