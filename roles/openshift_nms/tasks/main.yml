@@ -7,7 +7,7 @@
     name: common_tasks
     tasks_from: wait_for_operator.yml
   vars:
-    operator_name: nmstate
+    operator_name: kubernetes-nmstate-operator
     operator_namespace: "{{ nms_namespace }}"
 
 - name: Deploy NMState Instance...
