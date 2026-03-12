@@ -24,3 +24,4 @@
     instance_namespace: "{{ gpo_namespace }}"
     kind_name: ClusterPolicy
     api_operator_version: nvidia.com/v1
+    nvidia: true
