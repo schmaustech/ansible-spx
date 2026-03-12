@@ -9,15 +9,15 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 | **Playbook**    | **Description/Function**                                                                                                       | **Status**          |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | openshift_all   | Installs all the playbooks in the proper order for a full deployment of all components                                         |Not Started          |
-| openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |Complete             |
-| openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |Complete             |
-| openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |Complete             |
-| openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |WIP                  |
-| openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |WIP                  |
-| openshift_krn   | Configure kernel arguments and kernel module blacklist via machineconfig                                                       |Complete             |
 | openshift_scp   | This optional playbook will set core password via machineconfig                                                                |Complete             |
+| openshift_krn   | Configure kernel arguments and kernel module blacklist via machineconfig                                                       |Complete             |
 | openshift_rma   | Configure RDMA subsystem namespace awareness via machineconfig                                                                 |Complete             |
 | openshift_udv   | Configure UDEV rail rules machineconfig via machineconfig                                                                      |Not Started          |
+| openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |Complete             |
+| openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |Complete             |
+| openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |WIP                  |
+| openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |Complete             |
+| openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |Complete             |
 | openshift_nmo   | Configure NVIDIA Maintenance Operator                                                                                          |Not Started          |
 
 ## Details
@@ -241,4 +241,52 @@ ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
 
 PLAY RECAP ********************************************************************************************************************************************************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+~~~
+
+## Openshift_gpo
+
+~~~bash
+$ ansible-playbook openshift_gpo.yml 
+
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [include_role : openshift_gpo] *******************************************************************************************************************************************************************************
+included: openshift_gpo for bschmaus-thinkpadp1gen3.rmtusmn.csb
+
+TASK [openshift_gpo : Deploy NVIDIA GPU Operator] *****************************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting since 06:42:27 PM for CSV to appear] *************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting since 06:42:28 PM for the operator to deploy] ****************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_gpo : Deploy NVIDIA GPU Operator ClusterPolicy...] ************************************************************************************************************************************************
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting Since 06:42:30 PM for the Instance to Deploy] ****************************************************************************************************************************************
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (300 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (299 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (298 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (297 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (296 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (295 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (294 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (293 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (292 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (291 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (290 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (289 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (288 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (287 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (286 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 06:42:30 PM for the Instance to Deploy (285 retries left).
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting Since 06:45:23 PM for the Instance to Deploy] ****************************************************************************************************************************************
+skipping: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0 
 ~~~
