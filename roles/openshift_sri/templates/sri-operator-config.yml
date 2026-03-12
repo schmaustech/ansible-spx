@@ -1,1 +1,9 @@
-
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovOperatorConfig
+metadata:
+  name: default
+  namespace: {{ sri_namespace }}
+spec:
+  enableInjector: true
+  enableOperatorWebhook: true
+  logLevel: 2
