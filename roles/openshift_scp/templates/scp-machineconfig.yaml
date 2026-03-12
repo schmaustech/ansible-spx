@@ -3,7 +3,7 @@ kind: MachineConfig
 metadata:
   labels:
     machineconfiguration.openshift.io/role: {{ node_role }}
-  name: set-core-user-password
+  name: set-core-user-password-{{ node_role }}
 spec:
   config:
     ignition:
