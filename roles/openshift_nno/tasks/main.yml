@@ -17,7 +17,7 @@
 - name: Wait for NVIDIA Network Operator NicClusterPolicy to Deploy...
   ansible.builtin.import_role:
     name: common_tasks
-    tasks_from: wait_for_instance.yml
+    tasks_from: wait_for_nvidia_instance.yml
 
   vars:
     instance_name: nic-cluster-policy
