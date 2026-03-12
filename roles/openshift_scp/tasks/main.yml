@@ -1,0 +1,34 @@
+- name: Base64 Encode Password
+  ansible.builtin.shell: mkpasswd -m SHA-512 "{{ core_password }}"
+  register: password_hash
+
+#- name: Deploy Core Password MachineConfig
+#  kubernetes.core.k8s:
+#    definition: "{{ lookup('template', 'scp-machineconfig.yaml') }}"
+- name: What does hash look like
+  ansible.builtin.debug:
+    var: password_hash
+
+
+#- name: Wait for NVIDIA Network Operator to Deploy...
+#  ansible.builtin.import_role:
+#    name: common_tasks
+#    tasks_from: wait_for_operator.yml
+#  vars:
+#    operator_name: "{{ nno_namespace }}"
+#    operator_namespace: "{{ nno_namespace }}"
+
+#- name: Deploy NVIDIA Network Operator NicClusterPolicy...
+#  kubernetes.core.k8s:
+#    definition: "{{ lookup('template', 'nno-{{ nno_type }}-nicclusterpolicy.yaml') }}"
+
+#- name: Wait for NVIDIA Network Operator NicClusterPolicy to Deploy...
+#  ansible.builtin.import_role:
+#    name: common_tasks
+#    tasks_from: wait_for_instance.yml
+
+#  vars:
+#    instance_name: nic-cluster-policy
+#    instance_namespace: "{{ nno_namespace }}"
+#    kind_name: NicClusterPolicy
+#    api_operator_version: mellanox.com/v1alpha1
