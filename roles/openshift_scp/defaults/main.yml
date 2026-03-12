@@ -1,2 +1,2 @@
-node_role: worker
+node_role: master
 core_password: password
