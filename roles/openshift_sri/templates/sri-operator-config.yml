@@ -4,6 +4,10 @@ metadata:
   name: default
   namespace: {{ sri_namespace }}
 spec:
+  configDaemonNodeSelector:
+    feature.node.kubernetes.io/pci-15b3.sriov.capable: "true"
+    network.nvidia.com/operator.mofed.wait: "false"
+    node-role.kubernetes.io/master: ""
   enableInjector: true
   enableOperatorWebhook: true
   logLevel: 2
