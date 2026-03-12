@@ -107,7 +107,7 @@ bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=4    changed=1    unreachable=0    fail
 
 ## Openshift_rma
 
-This playbook enable RDMA device namespace separation, which is essential for proper resource isolation in containerized environments.  
+This playbook enable RDMA device namespace separation, which is essential for proper resource isolation in containerized environments.  This should not be used when using NVIDIA Network Operator in an rdmashared configuration.
 
 ~~~bash
 $ ansible-playbook openshift_rma.yml 
