@@ -11,4 +11,4 @@ spec:
     passwd:
       users:
       - name: core 
-        passwordHash: {{ password_hash }}
+        passwordHash: {{ password_hash.stdout }}
