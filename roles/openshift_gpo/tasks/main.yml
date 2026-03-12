@@ -12,7 +12,7 @@
 
 - name: Deploy NVIDIA GPU Operator ClusterPolicy...
   kubernetes.core.k8s:
-    definition: "{{ lookup('template', 'gpo-gpuclusterpolicy.yaml') }}"
+    definition: "{{ lookup('template', 'gpo-clusterpolicy.yaml') }}"
 
 - name: Wait for NVIDIA GPU Operator ClusterPolicy to Deploy...
   ansible.builtin.import_role:
