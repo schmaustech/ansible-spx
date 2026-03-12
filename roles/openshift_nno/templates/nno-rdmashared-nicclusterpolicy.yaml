@@ -68,10 +68,6 @@ spec:
     repository: nvcr.io/nvidia/mellanox
     version: network-operator-{{ nno_version }}.0
   secondaryNetwork:
-    cniPlugins:
-      image: plugins
-      repository: nvcr.io/nvidia/mellanox
-      version: network-operator-{{ nno_version }}.0
     ipoib:
       image: ipoib-cni
       repository: nvcr.io/nvidia/mellanox
