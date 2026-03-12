@@ -1,0 +1,17 @@
+- name: IB Core RDMA Subsystem Namespace Contents
+  ansible.builtin.shell: echo "options ib_core netns_mode=0" | base64 -w 0
+  register: ib_core
+  tags: register
+
+- name: Deploy RDMA Subsystem Namespace MachineConfig
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'rma-machineconfig.yaml') }}"
+
+- name: Wait for RDMA Subsystem Namespace MachineConfig to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_mc.yml
+  vars:
+    mcp_name: "{{ node_role }}"
+    kind_name: MachineConfigPool
+    api_operator_version: machineconfiguration.openshift.io/v1
