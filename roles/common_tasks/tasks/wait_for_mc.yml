@@ -1,3 +1,7 @@
+- name: 60 second pause to let MCO start processing...
+  ansible.builtin.pause:
+    seconds: 60
+    
 - name: Waiting Since {{ lookup("pipe", "date +%r") }} for the MachineConfig to Deploy
   kubernetes.core.k8s_info:
     api_version: '{{ api_operator_version }}'
