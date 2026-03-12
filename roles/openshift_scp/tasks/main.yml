@@ -6,3 +6,12 @@
 - name: Deploy Core Password MachineConfig
   kubernetes.core.k8s:
     definition: "{{ lookup('template', 'scp-machineconfig.yaml') }}"
+
+- name: Wait for Core Password MachineConfig to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_mc.yml
+  vars:
+    mcp_name: "{{ node_role }}"
+    kind_name: MachineConfigPool
+    api_operator_version: machineconfiguration.openshift.io/v1
