@@ -1,0 +1,41 @@
+- name: Deploy SRIOV Operator
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'sri-operator.yaml') }}"
+
+- name: Wait for SRIOV Operator to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_operator.yml
+  vars:
+    operator_name: sriov-network-operator
+    operator_namespace: "{{ sri_namespace }}"
+
+- name: Deploy SRIOV Instance...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'sri-operator-config.yaml') }}"
+
+- name: Wait for SRIOV Instance to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_instance.yml
+  vars:
+    instance_name: default
+    instance_namespace: "{{ sri_namespace }}"
+    kind_name: SriovOperatorConfig
+    api_operator_version: sriovnetwork.openshift.io/v1
+
+- name: Patch the SRIOV default instance for NVIDIA Network Operator
+  kubernetes.core.k8s:
+    api_version: sriovnetwork.openshift.io/v1
+    kind: sriovoperatorconfig
+    name: default
+    namespace: {{ sri_namespace }}
+    state: patched
+    resource_definition:
+      spec:
+        template:
+          spec:
+            containers:
+              - name: nginx
+                image: nginx:1.23.1 # The new image version
+
