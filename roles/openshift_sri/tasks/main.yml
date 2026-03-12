@@ -14,12 +14,12 @@
   kubernetes.core.k8s:
     definition: "{{ lookup('template', 'sri-operator-config.yaml') }}"
 
-- name: Wait for SRIOV Instance to Deploy...
-  ansible.builtin.import_role:
-    name: common_tasks
-    tasks_from: wait_for_instance.yml
-  vars:
-    instance_name: default
-    instance_namespace: "{{ sri_namespace }}"
-    kind_name: SriovOperatorConfig
-    api_operator_version: sriovnetwork.openshift.io/v1
+#- name: Wait for SRIOV Instance to Deploy...
+#  ansible.builtin.import_role:
+#    name: common_tasks
+#    tasks_from: wait_for_instance.yml
+#  vars:
+#    instance_name: default
+#    instance_namespace: "{{ sri_namespace }}"
+#    kind_name: SriovOperatorConfig
+#    api_operator_version: sriovnetwork.openshift.io/v1
