@@ -7,9 +7,9 @@ metadata:
 spec:
   kernelArguments:
     - "module_blacklist=irdma"
-    - default_hugepagesz=1G
-    - hugepagesz=1G
-    - hugepages=16
+    - default_hugepagesz={{ default_hugepagesz }}
+    - hugepagesz={{ hugepagesz }}
+    - hugepages={{ hugepages }}
     - intel_iommu=on
     - iommu=pt
     - pci=realloc=on
