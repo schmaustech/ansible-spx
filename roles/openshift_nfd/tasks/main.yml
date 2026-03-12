@@ -23,3 +23,4 @@
     instance_namespace: "{{ nfd_namespace }}"
     kind_name: NodeFeatureDiscovery
     api_operator_version: nfd.openshift.io/v1
+    nvidia: false
