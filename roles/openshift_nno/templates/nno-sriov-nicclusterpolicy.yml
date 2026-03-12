@@ -15,7 +15,7 @@ spec:
           memory: 10000Mi
       image: nic-configuration-operator-daemon
       repository: nvcr.io/nvidia/mellanox
-      version: network-operator-v26.1.0
+      version: network-operator-{{ nno_version }}.0
     logLevel: debug
     nicFirmwareStorage:
       availableStorageSize: 1Gi
@@ -32,11 +32,11 @@ spec:
           memory: 10000Mi
       image: nic-configuration-operator
       repository: nvcr.io/nvidia/mellanox
-      version: network-operator-v26.1.0
+      version: network-operator-{{ nno_version }}.0
   nvIpam:
     image: nvidia-k8s-ipam
     repository: nvcr.io/nvidia/mellanox
-    version: network-operator-v26.1.0
+    version: network-operator-{{ nno_version }}.0
     enableWebhook: false
   ofedDriver:
     env:
@@ -64,8 +64,8 @@ spec:
         timeoutSeconds: 300
       maxParallelUpgrades: 1
       safeLoad: false
-    version: doca3.3.0-26.01-0.4.6.0-1
+    version: {{ nno_driver_version }}
   spectrumXOperator:
     image: spectrum-x-operator
     repository: nvcr.io/nvidia/mellanox
-    version: network-operator-v26.1.0
+    version: network-operator-{{ nno_version }}.0
