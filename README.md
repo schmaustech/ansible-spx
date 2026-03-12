@@ -13,6 +13,10 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 | openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |WIP                  |
 | openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |WIP                  |
 | openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |Not Started          |
-| openshift_blk   | Blacklists drivers that might interfere with NVIDIA Network Operator                                                           |Not Started          |
+| openshift_krn   | Configure kernel arguments and kernel module blacklist via machineconfig                                                       |Not Started          |
+| openshift_scp   | This optional playbook will set core password via machineconfig                                                                |Complete             |
+| openshift_rma   | Configure RDMA subsystem namespace awareness via machineconfig                                                                 |Not Started          |
+| openshift_udv   | Configure UDEV rail rules machineconfig via machineconfig                                                                      |Not Started          |
+| openshift_nmo   | Configure NVIDIA Maintenance Operator                                                                                          |Not Started          |
 
 ## Details
