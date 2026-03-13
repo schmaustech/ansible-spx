@@ -2,12 +2,6 @@
   kubernetes.core.k8s:
     definition: "{{ lookup('template', 'ldp-lldpd-serviceaccount.yaml') }}"
 
-  vars:
-    scc_name: "privileged"
-    service_account_name: "{{ lldpd_service_account }}"
-    namespace_name: "{{ lldpd_namespace }}"
-    binding_name: "add-scc-to-{{ lldpd_service_account }}"
-
 - name: Ensure {{ lldpd_service_account }} service account exists...
   kubernetes.core.k8s:
     api_version: v1
@@ -16,20 +10,9 @@
     namespace: "{{ lldpd_namespace }}"
     state: present
 
-- name: Create a ClusterRoleBinding to the SCC for the {{ lldpd_service_account }} service account...
+- name: Create {{ lldpd_service_account }} service account...
   kubernetes.core.k8s:
-    api_version: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    name: "add-scc-to-{{ lldpd_service_account }}"
-    state: present
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: "privileged"
-    subjects:
-      - kind: ServiceAccount
-        name: "{{ lldpd_service_account }}"
-        namespace: "{{ lldpd_namespace }}"
+    definition: "{{ lookup('template', 'ldp-lldpd-clusterrolebinding.yaml') }}"     
 
 - name: Deploy Lldpd Daemonset...
   kubernetes.core.k8s:
