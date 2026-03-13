@@ -3,3 +3,4 @@ lldpd_namespace: nvidia-network-operator
 lldpd_image_name: 
 lldpd_service_account: lldpd
 lldpd_app_name: lldpd
+lldpd_image_name: 'quay.io/rh-ee-rshaligi/sptr-x/lldpd:0.0.5'
