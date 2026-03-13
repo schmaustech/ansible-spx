@@ -20,8 +20,9 @@ Below is the list of Ansible playbooks in this repository and their function.
 | openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |Complete             |
 | openshift_nmo   | Configure NVIDIA Maintenance Operator                                                                                          |Not Started          |
 | openshift_off   | Configure OVS offload                                                                                                          |WIP                  |
-| openshift_ldp   | Configure the lldpd daemonset                                                                                                  |WIP                  |
+| openshift_ldp   | Configure the lldpd daemonset which is required for Spectrum-X topology validation                                             |Complete             |
 | openshift_ngx   | Configure Nginx for network card firmware serving                                                                              |Not Started          |
+| openshift_cnv   | Installs the OpenShift Virtualization Operator and configures initial setup (not required for Spectrum-X)                      |Not Started          |
 
 
 ## Playbook Details 
