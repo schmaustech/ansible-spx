@@ -1,0 +1,12 @@
+- name: Deploy OVS Offload...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'off-ovs-offload.yaml') }}"
+
+- name: Wait for OVS Offload to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_mc.yml
+  vars:
+    mcp_name: "{{ node_role }}"
+    kind_name: MachineConfigPool
+    api_operator_version: machineconfiguration.openshift.io/v1
