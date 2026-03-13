@@ -4,6 +4,7 @@
 
 This playbook is entirely optional but is helpful for troubleshooting if network connectivity is lost from the node.  This will use a machineconfig to set the core user password.
 
+
 ~~~bash
 $ ansible-playbook openshift_scp.yml 
 
@@ -289,3 +290,35 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0 
 ~~~
 
+## Openshift_ldp
+
+~~~bash
+$ ansible-playbook openshift_ldp.yml
+
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [include_role : openshift_ldp] *******************************************************************************************************************************************************************************
+[WARNING]: While constructing a mapping from /home/bschmaus/nvd-srv-26/ansible-spx/roles/openshift_ldp/defaults/main.yml, line 1, column 1, found a duplicate dict key (lldpd_image_name). Using last defined
+value only.
+included: openshift_ldp for bschmaus-thinkpadp1gen3.rmtusmn.csb
+
+TASK [openshift_ldp : Create lldpd service account...] ************************************************************************************************************************************************************
+[WARNING]: Platform linux on host bschmaus-thinkpadp1gen3.rmtusmn.csb is using the discovered Python interpreter at /usr/bin/python3.13, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_ldp : Ensure lldpd service account exists...] *****************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_ldp : Create lldpd service account...] ************************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_ldp : Deploy Lldpd Daemonset...] ******************************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_ldp : Waiting Since 01:37:10 PM for the Daemonset to deploy...] ***********************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+~~~
