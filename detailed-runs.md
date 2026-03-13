@@ -185,7 +185,27 @@ bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=1    unreachable=0    fail
 ## Openshift_sri
 
 ~~~bash
+$ ansible-playbook openshift_sri.yml
 
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [include_role : openshift_sri] *******************************************************************************************************************************************************************************
+included: openshift_sri for bschmaus-thinkpadp1gen3.rmtusmn.csb
+
+TASK [openshift_sri : Deploy SRIOV Operator] **********************************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting since 07:10:20 AM for CSV to appear] *************************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting since 07:10:21 AM for the operator to deploy] ****************************************************************************************************************************************
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [openshift_sri : Deploy SRIOV Instance...] *******************************************************************************************************************************************************************
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 ~~~
 
 ## Openshift_nno
