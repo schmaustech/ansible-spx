@@ -25,3 +25,5 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 
 
 ## Details
+
+Detailed runs of each playbook completed can be found [here](https://github.com/schmaustech/ansible-spx/blob/main/detailed-runs.md)
