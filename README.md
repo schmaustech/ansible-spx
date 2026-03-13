@@ -15,7 +15,7 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 | openshift_udv   | Configure UDEV rail rules machineconfig via machineconfig                                                                      |Not Started          |
 | openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |Complete             |
 | openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |Complete             |
-| openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |WIP                  |
+| openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |Complete             |
 | openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |Complete             |
 | openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |Complete             |
 | openshift_nmo   | Configure NVIDIA Maintenance Operator                                                                                          |Not Started          |
