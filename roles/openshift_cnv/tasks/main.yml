@@ -1,0 +1,26 @@
+- name: Deploy OpenShift Virtualization Operator...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'cnv-operator.yaml') }}"
+
+- name: Wait for OpenShift Virtualization Operator to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_operator.yml
+  vars:
+    operator_name: kubevirt-hyperconverged
+    operator_namespace: "{{ cnv_namespace }}"
+
+- name: Deploy NFD Instance...
+  kubernetes.core.k8s:
+    definition: "{{ lookup('template', 'nfd-hyperconverged.yaml') }}"
+
+- name: Wait for NFD Instance to Deploy...
+  ansible.builtin.import_role:
+    name: common_tasks
+    tasks_from: wait_for_instance.yml
+  vars:
+    instance_name: kubevirt-hyperconverged
+    instance_namespace: "{{ cnv_namespace }}"
+    kind_name: HyperConverged
+    api_operator_version: hco.kubevirt.io/v1beta
+    nvidia: false
