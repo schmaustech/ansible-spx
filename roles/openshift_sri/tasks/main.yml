@@ -7,7 +7,7 @@
     name: common_tasks
     tasks_from: wait_for_operator.yml
   vars:
-    operator_name: sriov-network-operator
+    operator_name: sriov-network-operator-subscription
     operator_namespace: "{{ sri_namespace }}"
 
 - name: Deploy SRIOV Instance...
