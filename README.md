@@ -22,7 +22,7 @@ Below is the list of Ansible playbooks in this repository and their function.
 | openshift_off   | Configure OVS offload                                                                                                          |WIP                  |
 | openshift_ldp   | Configure the lldpd daemonset which is required for Spectrum-X topology validation                                             |Complete             |
 | openshift_ngx   | Configure Nginx for network card firmware serving                                                                              |Not Started          |
-| openshift_cnv   | Installs the OpenShift Virtualization Operator and configures initial setup (not required for Spectrum-X)                      |Not Started          |
+| openshift_cnv   | Installs the OpenShift Virtualization Operator and configures initial setup (not required for Spectrum-X)                      |WIP                  |
 
 
 ## Playbook Details 
