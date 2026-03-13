@@ -10,11 +10,11 @@
     operator_name: kubevirt-hyperconverged
     operator_namespace: "{{ cnv_namespace }}"
 
-- name: Deploy NFD Instance...
+- name: Deploy OpenShift Virtualization Hyperconverged...
   kubernetes.core.k8s:
     definition: "{{ lookup('template', 'cnv-hyperconverged.yaml') }}"
 
-- name: Wait for NFD Instance to Deploy...
+- name: Wait for OpenShift Virtualization Hyperconverged to Deploy...
   ansible.builtin.import_role:
     name: common_tasks
     tasks_from: wait_for_instance.yml
