@@ -19,8 +19,8 @@ Below is the list of Ansible playbooks in this repository and their function.
 | openshift_nno   | Installs the NVIDIA Network Operator and configures either rdmashared, sriov or hostdevice depending on desired results        |Complete             |
 | openshift_gpo   | Installs the NVIDIA GPU Operator and configures the GPU cluster policy for an RDMA setup                                       |Complete             |
 | openshift_nmo   | Configure NVIDIA Maintenance Operator                                                                                          |Not Started          |
-| openshift_off   | Configure OVS offload                                                                                                          |Not Started          |
-| openshift_ldp   | Configure the lldpd daemonset                                                                                                  |Not Started          |
+| openshift_off   | Configure OVS offload                                                                                                          |WIP                  |
+| openshift_ldp   | Configure the lldpd daemonset                                                                                                  |WIP                  |
 | openshift_ngx   | Configure Nginx for network card firmware serving                                                                              |Not Started          |
 
 
