@@ -4,7 +4,7 @@
 
 ## Ansible Playbook Collections
 
-Below is the list of Ansible playbooks in this repository and their function.  The grouping of playbooks can be run independently or as a whole.  Some of the playbooks can be used in other settings not just related to the general scope of this documents topic.
+Below is the list of Ansible playbooks in this repository and their function.
 
 | **Playbook**    | **Description/Function**                                                                                                       | **Status**          |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------|
@@ -24,6 +24,12 @@ Below is the list of Ansible playbooks in this repository and their function.  T
 | openshift_ngx   | Configure Nginx for network card firmware serving                                                                              |Not Started          |
 
 
-## Details
+## Playbook Details 
+
+Each playbook is broken down into a role that can independently be run and in some cases be used for other deployments beside Spectrum-X.  Each role has the following structure in the repository:
+
+* defaults/main.yml: This is where default variables like versions, node roles and other values can be defined
+* tasks/main.yml: This is the primary play for the given playbook
+* templates/main.yml:  This is where the OpenShift templates for a given play reside
 
 Detailed runs of each playbook completed can be found [here](https://github.com/schmaustech/ansible-spx/blob/main/detailed-runs.md)
