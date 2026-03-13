@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ lldpd_name }}
+  namespace: nvidia-network-operator
+  labels:
+    app: {{ app_name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ app_name }} 
+  template:
+    metadata:
+      labels:
+        app: {{ app_name }}
+    spec:
+      serviceAccountName: {{ service_account }}
+      hostNetwork: true
+      containers:
+        - name: lldpd-container
+          image: 
+          image: {{ lldpd_image }}
+          securityContext:
+            privileged: true
