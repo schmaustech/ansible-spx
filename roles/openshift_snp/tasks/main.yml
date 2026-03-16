@@ -4,4 +4,4 @@
     definition: "{{ lookup('template', 'rail_snnp.yml.j2') | from_yaml_all }}"
   loop: "{{ rail_names }}"
   loop_control:
-    loop_var: rail_names
+    loop_var: rail_name
