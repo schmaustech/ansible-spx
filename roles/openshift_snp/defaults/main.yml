@@ -1,0 +1,15 @@
+rail_names:
+  - name: snnp-eth_rail1
+    mtu: 9216
+    pfname: eth_rail1
+    numvfs: 1
+    isrdma: true
+    linktype: eth
+    resourcename: eth_rail1
+  - name: snnp-eth_rail2
+    mtu: 9216
+    pfname: eth_rail2
+    numvfs: 1
+    isrdma: true
+    linktype: eth
+    resourcename: eth_rail2
