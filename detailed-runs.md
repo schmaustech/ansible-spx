@@ -1,8 +1,8 @@
 # Details Runs of Each Playbook
 
-## Openshift_scp Playbook Run
+## Openshift_scp Role
 
-This playbook is entirely optional but is helpful for troubleshooting if network connectivity is lost from the node.  This will use a machineconfig to set the core user password.
+This role is entirely optional but is helpful for troubleshooting if network connectivity is lost from the node.  This will use a machineconfig to set the core user password.
 
 
 ~~~bash
@@ -32,7 +32,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 ~~~
 
-## OpenShift_krn
+## OpenShift_krn Role
 
 This playbook configures hugepages, iommu and also blacklists kernel modules as a machineconfig.  This will cause the nodes to reboot and depending the number of nodes we might have to increase the wait delay.
 
@@ -84,7 +84,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ~~~
 
-## Openshift_rma
+## Openshift_rma Role
 
 This playbook enable RDMA device namespace separation, which is essential for proper resource isolation in containerized environments.  This should not be used when using NVIDIA Network Operator in an rdmashared configuration.
 
@@ -145,11 +145,11 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ~~~
 
-## Openshift_udv
+## Openshift_udv Role
 
 Not Started
 
-## Openshift_nfd
+## Openshift_nfd Role
 
 This playbook will install Node Feature Discovery Operator 
 
@@ -183,7 +183,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ~~~
 
-## Openshift_sri
+## Openshift_sri Role
 
 ~~~bash
 $ ansible-playbook openshift_sri.yml
@@ -209,7 +209,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 ~~~
 
-## Openshift_nno
+## Openshift_nno Role
 
 ~~~bash
 $ ansible-playbook openshift_nno.yml
@@ -242,7 +242,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ~~~
 
-## Openshift_gpo
+## Openshift_gpo Role
 
 ~~~bash
 $ ansible-playbook openshift_gpo.yml 
@@ -290,7 +290,7 @@ PLAY RECAP *********************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0 
 ~~~
 
-## Openshift_ldp
+## Openshift_ldp Role
 
 ~~~bash
 $ ansible-playbook openshift_ldp.yml
@@ -321,4 +321,28 @@ ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
 
 PLAY RECAP ********************************************************************************************************************************************************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+~~~
+
+## Openshift_snp Role
+
+~~~bash
+$ ansible-playbook openshift_snp.yml 
+
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [include_role : openshift_snp] *******************************************************************************************************************************************************************************
+included: openshift_snp for bschmaus-thinkpadp1gen3.rmtusmn.csb
+
+TASK [openshift_snp : Create Rail SNNP policies...] ***************************************************************************************************************************************************************
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail0', 'mtu': 9216, 'pfname': 'eth_rail0', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail0'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail1', 'mtu': 9216, 'pfname': 'eth_rail1', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail1'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail2', 'mtu': 9216, 'pfname': 'eth_rail2', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail2'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail3', 'mtu': 9216, 'pfname': 'eth_rail3', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail3'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail4', 'mtu': 9216, 'pfname': 'eth_rail4', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail4'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail5', 'mtu': 9216, 'pfname': 'eth_rail5', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail5'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail6', 'mtu': 9216, 'pfname': 'eth_rail6', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail6'})
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail7', 'mtu': 9216, 'pfname': 'eth_rail7', 'numvfs': 1, 'isrdma': True, 'linktype': 'eth', 'resourcename': 'eth_rail7'})
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ~~~
