@@ -346,3 +346,84 @@ changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb] => (item={'name': 'snnp-eth-rail7
 PLAY RECAP ********************************************************************************************************************************************************************************************************
 bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ~~~
+
+## Openshift_off Role
+
+~~~bash
+$ ansible-playbook openshift_off.yml 
+
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [include_role : openshift_off] *******************************************************************************************************************************************************************************
+included: openshift_off for bschmaus-thinkpadp1gen3.rmtusmn.csb
+
+TASK [openshift_off : Deploy OVS Offload...] **********************************************************************************************************************************************************************
+[WARNING]: Platform linux on host bschmaus-thinkpadp1gen3.rmtusmn.csb is using the discovered Python interpreter at /usr/bin/python3.13, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html for more information.
+changed: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : 30 second pause to let MCO start processing...] **********************************************************************************************************************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+TASK [common_tasks : Waiting Since 03:41:16 PM for the MachineConfig to Deploy] ***********************************************************************************************************************************
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (3000 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2999 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2998 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2997 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2996 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2995 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2994 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2993 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2992 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2991 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2990 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2989 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2988 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2987 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2986 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2985 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2984 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2983 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2982 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2981 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2980 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2979 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2978 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2977 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2976 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2975 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2974 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2973 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2972 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2971 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2970 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2969 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2968 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2967 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2966 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2965 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2964 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2963 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2962 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2961 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2960 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2959 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2958 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2957 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2956 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2955 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2954 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2953 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2952 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2951 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2950 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2949 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2948 retries left).
+FAILED - RETRYING: [bschmaus-thinkpadp1gen3.rmtusmn.csb]: Waiting Since 03:41:16 PM for the MachineConfig to Deploy (2947 retries left).
+ok: [bschmaus-thinkpadp1gen3.rmtusmn.csb]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+bschmaus-thinkpadp1gen3.rmtusmn.csb : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+~~~
