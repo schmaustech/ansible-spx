@@ -12,7 +12,7 @@ Below is the list of Ansible playbooks in this repository and their function.
 | openshift_scp   | This optional playbook will set core password via machineconfig                                                                |Complete             |
 | openshift_krn   | Configure kernel arguments and kernel module blacklist via machineconfig                                                       |Complete             |
 | openshift_rma   | Configure RDMA subsystem namespace awareness via machineconfig                                                                 |Complete             |
-| openshift_udv   | Configure UDEV rail rules machineconfig via machineconfig                                                                      |Not Started          |
+| openshift_udv   | Configure UDEV rail rules machineconfig via machineconfig                                                                      |WIP                  |
 | openshift_nfd   | Installs the Node Feature Discovery Operator and configures an instance specific for NVIDIA network and GPU devices            |Complete             |
 | openshift_nms   | Installs the NMState Operator and configures the default nmstate instance                                                      |Complete             |
 | openshift_sri   | Installs the SRIOV Operator and confgures initial components                                                                   |Complete             |
