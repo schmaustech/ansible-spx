@@ -1,5 +1,7 @@
 udv_gpuid: "10de:2335"
 udv_nicid: "15b3:a2dc"
-udv_persist: 70-persistent-net.rules
+udv_persist_name: 70-persistent-net.rules
 udv_role: worker
 udv_nodename: dell-h200-2
+udv_base64_rules: 
+udv_mc_name: 99-machine-config-udev-network
