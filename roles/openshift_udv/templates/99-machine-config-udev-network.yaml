@@ -1,1 +1,17 @@
-
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+   labels:
+     machineconfiguration.openshift.io/role: {{ udv_role }}
+   name: {{ udv_mc_name }}
+spec:
+   config:
+     ignition:
+       version: 3.2.0
+     storage:
+       files:
+       - contents:
+           source: data:text/plain;charset=utf-8;base64,{{ udv_base64_rules }}
+         filesystem: root
+         mode: 420
+         path: /etc/udev/rules.d/{{ udv_persist_name }}
