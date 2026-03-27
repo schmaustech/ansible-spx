@@ -1,1 +1,8 @@
+tasks:
+    - name: Execute the info.sh script
+      command: "./openshift_udv/scripts/remote-gpu-nic-rail-mapping.sh -g {{ udv_gpuid }} -n {{ udv_nicid }} -u {{ udv_persist_name }} -r {{ udv_role }} -c {{ dell-h200-2 }}"
+      register: script_output
 
+    - name: Display the script output
+      debug:
+        var: script_output.stdout 
